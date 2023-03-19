@@ -700,16 +700,6 @@ namespace CoffeeStore
             string displayName = tBoxDisplayName.Text;
             int type = (cBoxTypeAcc.SelectedItem as TypeAcc).IdType;
 
-            List<string> list = AccountDAO.Instance.GetUserNameAccountsList();
-            foreach (string item in list)
-            {
-                if (userName == item)
-                {
-                    ShowMessError($"Thông tin về tài khoản \"{userName}\" không có gì thay đổi");
-                    return;
-                }
-            }
-
             if (ShowMessQuestion($"Bạn muốn thay đổi thông tin tài khoản?"))
             {
                 if (AccountDAO.Instance.EditAccInfo(userName, displayName, type))

@@ -97,6 +97,7 @@
             this.btnAddTopping_Food = new System.Windows.Forms.Button();
             this.btnRemoveTopping_Food = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
+            this.tBoxTopping_FoodID = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.panel31 = new System.Windows.Forms.Panel();
             this.tBoxTopping_FoodName = new System.Windows.Forms.TextBox();
@@ -158,7 +159,6 @@
             this.btnResetPass = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.dtGVAcc = new System.Windows.Forms.DataGridView();
-            this.tBoxTopping_FoodID = new System.Windows.Forms.NumericUpDown();
             this.tBoxTotalPrice = new CoffeeStore.csControls.csTextBox();
             this.tBoxTotalRevenue = new CoffeeStore.csControls.csTextBox();
             this.csBtnStatistical = new CoffeeStore.csControls.csButton();
@@ -193,6 +193,7 @@
             this.grBoxTopping_Food.SuspendLayout();
             this.panel36.SuspendLayout();
             this.panel29.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tBoxTopping_FoodID)).BeginInit();
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGVTopping_Food)).BeginInit();
             this.panel35.SuspendLayout();
@@ -221,7 +222,6 @@
             this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGVAcc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tBoxTopping_FoodID)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCAdmin
@@ -812,7 +812,7 @@
             // 
             // btnAdjustCategory
             // 
-            this.btnAdjustCategory.Location = new System.Drawing.Point(129, 3);
+            this.btnAdjustCategory.Location = new System.Drawing.Point(181, 3);
             this.btnAdjustCategory.Name = "btnAdjustCategory";
             this.btnAdjustCategory.Size = new System.Drawing.Size(85, 50);
             this.btnAdjustCategory.TabIndex = 2;
@@ -822,7 +822,7 @@
             // 
             // btnRemoveCategory
             // 
-            this.btnRemoveCategory.Location = new System.Drawing.Point(234, 3);
+            this.btnRemoveCategory.Location = new System.Drawing.Point(286, 3);
             this.btnRemoveCategory.Name = "btnRemoveCategory";
             this.btnRemoveCategory.Size = new System.Drawing.Size(85, 50);
             this.btnRemoveCategory.TabIndex = 1;
@@ -832,7 +832,7 @@
             // 
             // btnAddCategory
             // 
-            this.btnAddCategory.Location = new System.Drawing.Point(24, 3);
+            this.btnAddCategory.Location = new System.Drawing.Point(76, 3);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(85, 50);
             this.btnAddCategory.TabIndex = 0;
@@ -879,7 +879,7 @@
             this.grBoxTopping_Food.Controls.Add(this.panel36);
             this.grBoxTopping_Food.Controls.Add(this.panel29);
             this.grBoxTopping_Food.Controls.Add(this.panel31);
-            this.grBoxTopping_Food.Location = new System.Drawing.Point(505, 313);
+            this.grBoxTopping_Food.Location = new System.Drawing.Point(505, 297);
             this.grBoxTopping_Food.Name = "grBoxTopping_Food";
             this.grBoxTopping_Food.Size = new System.Drawing.Size(435, 201);
             this.grBoxTopping_Food.TabIndex = 5;
@@ -926,6 +926,24 @@
             this.panel29.Size = new System.Drawing.Size(420, 40);
             this.panel29.TabIndex = 0;
             // 
+            // tBoxTopping_FoodID
+            // 
+            this.tBoxTopping_FoodID.Location = new System.Drawing.Point(139, 8);
+            this.tBoxTopping_FoodID.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.tBoxTopping_FoodID.Name = "tBoxTopping_FoodID";
+            this.tBoxTopping_FoodID.Size = new System.Drawing.Size(250, 24);
+            this.tBoxTopping_FoodID.TabIndex = 1;
+            this.tBoxTopping_FoodID.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.tBoxTopping_FoodID.ValueChanged += new System.EventHandler(this.tBoxTopping_FoodID_ValueChanged);
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -967,20 +985,20 @@
             // 
             this.dtGVTopping_Food.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtGVTopping_Food.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGVTopping_Food.Location = new System.Drawing.Point(15, 306);
+            this.dtGVTopping_Food.Location = new System.Drawing.Point(15, 303);
             this.dtGVTopping_Food.Name = "dtGVTopping_Food";
             this.dtGVTopping_Food.RowHeadersWidth = 51;
             this.dtGVTopping_Food.RowTemplate.Height = 24;
-            this.dtGVTopping_Food.Size = new System.Drawing.Size(425, 210);
+            this.dtGVTopping_Food.Size = new System.Drawing.Size(425, 213);
             this.dtGVTopping_Food.TabIndex = 14;
             // 
             // panel35
             // 
             this.panel35.Controls.Add(this.tBoxFindTopping);
             this.panel35.Controls.Add(this.btnFindTopping);
-            this.panel35.Location = new System.Drawing.Point(505, 4);
+            this.panel35.Location = new System.Drawing.Point(505, 2);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(435, 59);
+            this.panel35.Size = new System.Drawing.Size(435, 55);
             this.panel35.TabIndex = 13;
             // 
             // tBoxFindTopping
@@ -1007,9 +1025,9 @@
             this.grBoxTopping.Controls.Add(this.panel33);
             this.grBoxTopping.Controls.Add(this.panel30);
             this.grBoxTopping.Controls.Add(this.panel32);
-            this.grBoxTopping.Location = new System.Drawing.Point(505, 69);
+            this.grBoxTopping.Location = new System.Drawing.Point(505, 60);
             this.grBoxTopping.Name = "grBoxTopping";
-            this.grBoxTopping.Size = new System.Drawing.Size(435, 227);
+            this.grBoxTopping.Size = new System.Drawing.Size(435, 220);
             this.grBoxTopping.TabIndex = 1;
             this.grBoxTopping.TabStop = false;
             this.grBoxTopping.Text = "Thông tin Topping";
@@ -1018,7 +1036,7 @@
             // 
             this.panel34.Controls.Add(this.tBoxToppingID);
             this.panel34.Controls.Add(this.label20);
-            this.panel34.Location = new System.Drawing.Point(6, 23);
+            this.panel34.Location = new System.Drawing.Point(6, 22);
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(420, 40);
             this.panel34.TabIndex = 0;
@@ -1048,7 +1066,7 @@
             // 
             this.panel33.Controls.Add(this.tBoxToppingName);
             this.panel33.Controls.Add(this.label19);
-            this.panel33.Location = new System.Drawing.Point(6, 69);
+            this.panel33.Location = new System.Drawing.Point(6, 67);
             this.panel33.Name = "panel33";
             this.panel33.Size = new System.Drawing.Size(420, 40);
             this.panel33.TabIndex = 2;
@@ -1075,7 +1093,7 @@
             // 
             this.panel30.Controls.Add(this.numToppingPrice);
             this.panel30.Controls.Add(this.label17);
-            this.panel30.Location = new System.Drawing.Point(6, 115);
+            this.panel30.Location = new System.Drawing.Point(6, 112);
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(420, 40);
             this.panel30.TabIndex = 4;
@@ -1108,7 +1126,7 @@
             this.panel32.Controls.Add(this.btnAddTopping);
             this.panel32.Controls.Add(this.btnRemoveTopping);
             this.panel32.Controls.Add(this.btnAdjustTopping);
-            this.panel32.Location = new System.Drawing.Point(6, 161);
+            this.panel32.Location = new System.Drawing.Point(6, 157);
             this.panel32.Name = "panel32";
             this.panel32.Size = new System.Drawing.Size(420, 56);
             this.panel32.TabIndex = 9;
@@ -1292,7 +1310,7 @@
             // 
             // btnDeleteTable
             // 
-            this.btnDeleteTable.Location = new System.Drawing.Point(215, 3);
+            this.btnDeleteTable.Location = new System.Drawing.Point(268, 3);
             this.btnDeleteTable.Name = "btnDeleteTable";
             this.btnDeleteTable.Size = new System.Drawing.Size(85, 50);
             this.btnDeleteTable.TabIndex = 4;
@@ -1302,7 +1320,7 @@
             // 
             // btnAdjustTable
             // 
-            this.btnAdjustTable.Location = new System.Drawing.Point(112, 3);
+            this.btnAdjustTable.Location = new System.Drawing.Point(165, 3);
             this.btnAdjustTable.Name = "btnAdjustTable";
             this.btnAdjustTable.Size = new System.Drawing.Size(85, 50);
             this.btnAdjustTable.TabIndex = 2;
@@ -1312,7 +1330,7 @@
             // 
             // btnAddTable
             // 
-            this.btnAddTable.Location = new System.Drawing.Point(13, 3);
+            this.btnAddTable.Location = new System.Drawing.Point(66, 3);
             this.btnAddTable.Name = "btnAddTable";
             this.btnAddTable.Size = new System.Drawing.Size(85, 50);
             this.btnAddTable.TabIndex = 0;
@@ -1387,7 +1405,7 @@
             this.tBoxUserName.Location = new System.Drawing.Point(171, 9);
             this.tBoxUserName.Name = "tBoxUserName";
             this.tBoxUserName.Size = new System.Drawing.Size(210, 24);
-            this.tBoxUserName.TabIndex = 1;
+            this.tBoxUserName.TabIndex = 4;
             this.tBoxUserName.TextChanged += new System.EventHandler(this.tBoxUserName_TextChanged);
             // 
             // label12
@@ -1414,7 +1432,7 @@
             this.tBoxDisplayName.Location = new System.Drawing.Point(171, 10);
             this.tBoxDisplayName.Name = "tBoxDisplayName";
             this.tBoxDisplayName.Size = new System.Drawing.Size(210, 24);
-            this.tBoxDisplayName.TabIndex = 1;
+            this.tBoxDisplayName.TabIndex = 5;
             // 
             // label11
             // 
@@ -1441,7 +1459,7 @@
             this.cBoxTypeAcc.Location = new System.Drawing.Point(171, 10);
             this.cBoxTypeAcc.Name = "cBoxTypeAcc";
             this.cBoxTypeAcc.Size = new System.Drawing.Size(210, 26);
-            this.cBoxTypeAcc.TabIndex = 1;
+            this.cBoxTypeAcc.TabIndex = 6;
             // 
             // label10
             // 
@@ -1465,7 +1483,7 @@
             // 
             // btnAdjustAcc
             // 
-            this.btnAdjustAcc.Location = new System.Drawing.Point(168, 3);
+            this.btnAdjustAcc.Location = new System.Drawing.Point(171, 3);
             this.btnAdjustAcc.Name = "btnAdjustAcc";
             this.btnAdjustAcc.Size = new System.Drawing.Size(85, 50);
             this.btnAdjustAcc.TabIndex = 2;
@@ -1475,20 +1493,20 @@
             // 
             // btnRemoveAcc
             // 
-            this.btnRemoveAcc.Location = new System.Drawing.Point(302, 6);
+            this.btnRemoveAcc.Location = new System.Drawing.Point(273, 3);
             this.btnRemoveAcc.Name = "btnRemoveAcc";
             this.btnRemoveAcc.Size = new System.Drawing.Size(85, 50);
-            this.btnRemoveAcc.TabIndex = 1;
+            this.btnRemoveAcc.TabIndex = 3;
             this.btnRemoveAcc.Text = "Xóa";
             this.btnRemoveAcc.UseVisualStyleBackColor = true;
             this.btnRemoveAcc.Click += new System.EventHandler(this.btnRemoveAcc_Click);
             // 
             // btnAddAcc
             // 
-            this.btnAddAcc.Location = new System.Drawing.Point(11, 3);
+            this.btnAddAcc.Location = new System.Drawing.Point(67, 3);
             this.btnAddAcc.Name = "btnAddAcc";
             this.btnAddAcc.Size = new System.Drawing.Size(85, 50);
-            this.btnAddAcc.TabIndex = 0;
+            this.btnAddAcc.TabIndex = 1;
             this.btnAddAcc.Text = "Thêm";
             this.btnAddAcc.UseVisualStyleBackColor = true;
             this.btnAddAcc.Click += new System.EventHandler(this.btnAddAcc_Click);
@@ -1521,24 +1539,6 @@
             this.dtGVAcc.RowTemplate.Height = 24;
             this.dtGVAcc.Size = new System.Drawing.Size(534, 505);
             this.dtGVAcc.TabIndex = 0;
-            // 
-            // tBoxTopping_FoodID
-            // 
-            this.tBoxTopping_FoodID.Location = new System.Drawing.Point(139, 8);
-            this.tBoxTopping_FoodID.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.tBoxTopping_FoodID.Name = "tBoxTopping_FoodID";
-            this.tBoxTopping_FoodID.Size = new System.Drawing.Size(250, 24);
-            this.tBoxTopping_FoodID.TabIndex = 1;
-            this.tBoxTopping_FoodID.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.tBoxTopping_FoodID.ValueChanged += new System.EventHandler(this.tBoxTopping_FoodID_ValueChanged);
             // 
             // tBoxTotalPrice
             // 
@@ -1664,6 +1664,7 @@
             this.panel36.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
             this.panel29.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tBoxTopping_FoodID)).EndInit();
             this.panel31.ResumeLayout(false);
             this.panel31.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGVTopping_Food)).EndInit();
@@ -1703,7 +1704,6 @@
             this.panel26.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtGVAcc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tBoxTopping_FoodID)).EndInit();
             this.ResumeLayout(false);
 
         }
