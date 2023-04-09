@@ -6,6 +6,9 @@ select * from Topping
 select * from MonAn_Topping
 select * from Ban
 
+select MAX(ID) from MonAn
+select cthd.idTopping1, cthd.idTopping2 from Topping as tp, HoaDon as hd, ChiTietHoaDon as cthd where hd.TrangThai = 0 and hd.ID = cthd.idHoaDon and tp.ID = cthd.idTopping1
+
 ---- Hiển thị cả những hóa đơn đã thanh toán
 --select hd.ID, ma.TenMon as [Tên Món], cthd.idTopping1 as [Topping 1], cthd.idTopping2 as [Topping 2], ma.GiaMonAn as [Đơn Giá], cthd.SoLuong as [Số Lượng], ma.GiaMonAn*cthd.SoLuong as [Thành Tiền]
 --select ma.ID as [idMonAn], cthd.idTopping1, cthd.idTopping2, cthd.SoLuong

@@ -27,7 +27,7 @@ namespace CoffeeStore.DAO
         private static string remoteConnectionSTR = @"workstation id=TheCoffeeHouse.mssql.somee.com;packet size=4096;user id=SunnyBiolie_SQLLogin_1;pwd=wu6kexltjr;data source=TheCoffeeHouse.mssql.somee.com;persist security info=False;initial catalog=TheCoffeeHouse";
         private static string localConnectionSTR = @"Data Source=KHOAPHAM;Initial Catalog=TheCoffeeHouse;Integrated Security=True";
 
-        private string connectionSTR = remoteConnectionSTR;
+        private string connectionSTR = localConnectionSTR;
 
         public DataTable ExecuteQuery(string query, object[] parameters = null)
         {

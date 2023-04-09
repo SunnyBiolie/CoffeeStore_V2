@@ -180,6 +180,7 @@ namespace CoffeeStore.DAO
             foreach (DataRow row in data.Rows)
             {
                 InterfaceFoodInfo food = new InterfaceFoodInfo(row);
+                if (food.Id == 1) continue;
                 list.Add(food);
             }
 

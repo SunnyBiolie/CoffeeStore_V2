@@ -70,6 +70,11 @@ namespace CoffeeStore.DAO
         {
             string query = $"insert MonAn (TenMon, idDM, GiaMonAn) values ( @foodName , @categoryID , @foodPrice )";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { foodName, categoryID, foodPrice });
+            
+            if (result > 0)
+            {
+                ToppingDAO.Instance.AddNoSelectForNewFood(GetMaxFoodID());
+            }
 
             return result > 0;
         }
@@ -97,6 +102,31 @@ namespace CoffeeStore.DAO
         {
             string query = "select TenMon from MonAn where ID = @foodID";
             return DataProvider.Instance.ExecuteQuery(query, new object[] { foodID }).Rows[0][0].ToString();
+        }
+    
+        public bool CheckIfFoodServedByID(int foodID)
+        {
+            string query = "select ma.ID from MonAn as ma, HoaDon as hd, ChiTietHoaDon as cthd where hd.TrangThai = 0 and hd.ID = cthd.idHoaDon and cthd.idMonAn = ma.ID";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            if (data.Rows.Count > 0)
+            {
+                foreach (DataRow row in data.Rows)
+                {
+                    if ((int)row[0]  == foodID)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+    
+        public int GetMaxFoodID()
+        {
+            string query = "select MAX(ID) from MonAn";
+            return (int)DataProvider.Instance.ExecuteQuery(query).Rows[0][0];
         }
     }
 }

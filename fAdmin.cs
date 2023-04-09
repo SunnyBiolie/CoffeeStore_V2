@@ -223,6 +223,12 @@ namespace CoffeeStore
             int foodID = Convert.ToInt32(tBoxFoodID.Text);
             string foodName = tBoxFoodName.Text;
 
+            if (FoodDAO.Instance.CheckIfFoodServedByID(foodID))
+            {
+                ShowMessError("Không thể xóa, món ăn đang được phục vụ");
+                return;
+            }
+
             if (ShowMessQuestion($"Xóa món \"{foodName}\" khỏi danh mục \"{(cBoxFoodCategory.SelectedItem as Category).Name}\"?"))
             {
                 if (FoodDAO.Instance.DeleteFood(foodID))
@@ -422,6 +428,12 @@ namespace CoffeeStore
             int toppingID = Convert.ToInt32(tBoxToppingID.Text);
             string toppingName = tBoxToppingName.Text;
 
+            if (ToppingDAO.Instance.CheckIfToppingServedByID(toppingID))
+            {
+                ShowMessError("Không thể xóa, Topping đang tồn tại trong món được phục vụ");
+                return;
+            }
+
             if (ShowMessQuestion($"Xóa topping \"{toppingName}\" khỏi cơ sở dữ liệu?"))
             {
                 if (ToppingDAO.Instance.DeleteTopping(toppingID))
@@ -448,6 +460,7 @@ namespace CoffeeStore
             tBoxTopping_FoodID.DataBindings.Add(new Binding("Text", dtGVTopping_Food.DataSource, "FoodId", true, DataSourceUpdateMode.Never));
             // đã Binding Name theo id change
             //tBoxTopping_FoodName.DataBindings.Add(new Binding("Text", dtGVTopping_Food.DataSource, "FoodName", true, DataSourceUpdateMode.Never));
+            tBoxTopping_FoodID.Maximum = FoodDAO.Instance.GetMaxFoodID();
         }
 
         private void AddTopping_Food()

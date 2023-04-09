@@ -66,6 +66,7 @@ namespace CoffeeStore.DAO
             foreach (DataRow row in data.Rows)
             {
                 Topping topping = new Topping(row);
+                if (topping.Id == 1) continue;
                 list.Add(topping);
             }
 
@@ -94,6 +95,31 @@ namespace CoffeeStore.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(@query, new Object[] { toppingID });
 
             return result > 0;
+        }
+    
+        public bool CheckIfToppingServedByID(int toppingID)
+        {
+            string query = "select cthd.idTopping1, cthd.idTopping2 from Topping as tp, HoaDon as hd, ChiTietHoaDon as cthd where hd.TrangThai = 0 and hd.ID = cthd.idHoaDon and tp.ID = cthd.idTopping1";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            if (data.Rows.Count > 0)
+            {
+                foreach (DataRow row in data.Rows)
+                {
+                    if ((int)row[0] == toppingID || (int)row[1] == toppingID)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+    
+        public void AddNoSelectForNewFood(int idFood)
+        {
+            string query = "insert MonAn_Topping (idMonAn, idTopping) values ( @idFood , 2)";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { idFood });
         }
     }
 }
